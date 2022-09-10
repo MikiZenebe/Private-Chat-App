@@ -1,0 +1,57 @@
+body{
+    background: linear-gradient(to right, #00d2ff, #3a7bd5);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.form-container{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+
+    .form-wrapper{
+        background: white;
+        padding: 20px 80px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+
+    // Input{
+    //     margin: 0 10px 5px 0;
+    //     padding: 0 30px;
+       
+
+    //     &:placeholder-shown{
+    //         margin: 0 0  0 -30px;
+    //     }
+    // }
+
+    .logo{
+        color: #3a7bd5;
+        font-weight: bold;
+        font-size: 24px;
+    }
+    .title{
+        color: #3a7bd5;
+    }
+
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+            label{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: #3a7bd5;
+                font-size: 12px;
+                cursor: pointer;
+               
+            }
+        }
+    }
+}

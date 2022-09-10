@@ -1,9 +1,11 @@
 import React from "react";
+import Register from "./pages/Register";
+import "./style.scss";
 
 function App() {
   return (
     <div>
-      <h1>Chat App</h1>
+      <Register />
     </div>
   );
 }
