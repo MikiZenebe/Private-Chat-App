@@ -60,8 +60,8 @@ body{
    
     height: 100vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    // align-items: center;
+    // justify-content: center;
 
     .container{
         border: 1px solid white;
@@ -69,9 +69,46 @@ body{
         width: 65%;
         height: 80%;
         display: flex;
+        overflow: hidden;
 
         .sidebar{
             flex: 1;
+            background-color: #3a7bd5b9;
+
+            .navbar{
+                display: flex;
+                align-items: center;
+                background-color: #3a7bd5;
+                height: 50px;
+                padding: 10px;
+                justify-content: space-between;
+                color: white;
+
+                .logo{
+                    font-weight: bold;
+                }
+
+                .user{
+                    display: flex;
+                    gap: 10px;
+
+                    .img{
+                        background-color: white;
+                        height: 24px;
+                        width: 24px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+
+                    Button{
+                        background-color: #e6f0ff;
+                        font-weight: bold;
+                        font-size: 10px;
+                    }
+                }
+
+               
+            }
         }
         .chat{
             flex: 2;
