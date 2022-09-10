@@ -1,6 +1,6 @@
 import React from "react";
 import { Input, Button } from "@mui/material";
-import { MdAddPhotoAlternate } from "react-icons/md";
+
 function Login() {
   return (
     <div className="form-container">
