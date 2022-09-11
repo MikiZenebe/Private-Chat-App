@@ -1,9 +1,7 @@
 import React from "react";
 
-import "./style.scss";
-
 function App() {
-  return <div></div>;
+  return <div>App</div>;
 }
 
 export default App;
