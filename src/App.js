@@ -9,9 +9,9 @@ import "./style.scss";
 function App() {
   return (
     <div>
-      <Register />
+      {/* <Register /> */}
       {/* <Login /> */}
-      {/* <Home /> */}
+      <Home />
     </div>
   );
 }

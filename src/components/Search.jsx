@@ -7,13 +7,13 @@ function Search() {
   return (
     <div className="search">
       <div className="search-form">
-        <input type="text" placeholder="Find a user" />
+        <Input type="text" placeholder="Find a user" />
       </div>
 
       <div className="user-chat">
         <img src={Reta} alt="" />
         <div className="user-chatInfo">
-          <span>Miki Lk</span>
+          <span>Miki Reta</span>
         </div>
       </div>
     </div>

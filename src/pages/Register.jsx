@@ -18,7 +18,7 @@ function Register() {
 
           <Input style={{ display: "none" }} id="file" type="file" />
           <label htmlFor="file">
-            <MdAddPhotoAlternate fill="#FDA98B" size={25} />
+            <MdAddPhotoAlternate fill="#f09676" size={25} />
             <span>Add Profile Picture</span>
           </label>
 
