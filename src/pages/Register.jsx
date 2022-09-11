@@ -18,11 +18,11 @@ function Register() {
 
           <Input style={{ display: "none" }} id="file" type="file" />
           <label htmlFor="file">
-            <MdAddPhotoAlternate fill="#3a7bd5" size={25} />
+            <MdAddPhotoAlternate fill="#FDA98B" size={25} />
             <span>Add Profile Picture</span>
           </label>
 
-          <Button variant="contained">Sign up</Button>
+          <button>Sign up</button>
         </form>
 
         <p>Have an account? Login</p>
