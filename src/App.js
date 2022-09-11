@@ -1,19 +1,9 @@
 import React from "react";
 
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import Home from "./pages/Home";
-
 import "./style.scss";
 
 function App() {
-  return (
-    <div>
-      {/* <Register /> */}
-      {/* <Login /> */}
-      <Home />
-    </div>
-  );
+  return <div></div>;
 }
 
 export default App;
