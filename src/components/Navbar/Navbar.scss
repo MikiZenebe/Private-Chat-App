@@ -4,8 +4,9 @@ nav{
     justify-content: space-between;
     height: 70px;
     padding: 0px 20px;
-    background-image: linear-gradient(to right, #ece9e6, #ffffff);
+    background: white;
     border-bottom: black;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 1px 20px -20px;
 
     a{
         color: black;
@@ -20,7 +21,7 @@ nav{
             margin: 5px;
             padding: 15px;
             text-align: center;
-            text-transform: uppercase;
+            // text-transform: uppercase;
             transition: 0.5s;
             background-size: 200% auto;
             color: black;            
@@ -32,6 +33,7 @@ nav{
                 background-position: right center; /* change the direction of the change here */
                 color: #fff;
                 text-decoration: none;
+                text-transform: uppercase;
               }
            
         }

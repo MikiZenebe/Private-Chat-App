@@ -1,0 +1,46 @@
+section{
+    max-width: 450px;
+    margin: 0 auto;
+    margin-top: 100px;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+
+    h3{
+        text-align: center;
+        font-size: 20px;
+        
+    }
+
+    .form{
+        margin-top: 30px;
+        padding: 0 20px;
+    }
+
+    .input__container{
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        
+        Input{
+            margin-top: 10px;
+        }
+      
+        Button{
+            margin-top: 20px;
+            background-image: linear-gradient(to right, #FF512F 0%, #F09819  51%);
+            color: white;
+            text-transform: capitalize;
+            margin: 20px 130px;
+
+            &:hover{
+                transition: all 0.3s ease-in-out;
+                transform: scale(1.05);
+            }
+        }
+        
+    }
+
+    
+}

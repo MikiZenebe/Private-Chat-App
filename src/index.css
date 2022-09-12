@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
 
 body {
-
+    background-image: linear-gradient(to right, #ece9e6, #ffffff);
     margin: 0;
     font-family: 'Source Code Pro', monospace;
     -webkit-font-smoothing: antialiased;
