@@ -2,15 +2,14 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Input, Button, Alert } from "@mui/material";
 
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../firebase";
-import { setDoc, doc, Timestamp } from "firebase/firestore";
+import { updateDoc, doc } from "firebase/firestore";
 
 import "./Register.scss";
 
-function Register() {
+function Login() {
   const [data, setData] = useState({
-    name: "",
     email: "",
     password: "",
     error: null,
@@ -19,7 +18,7 @@ function Register() {
 
   const navigate = useNavigate();
 
-  const { name, email, password, error, loading } = data;
+  const { email, password, error, loading } = data;
 
   //Hold data in the input
   const changeHandler = (e) => {
@@ -31,53 +30,45 @@ function Register() {
     e.preventDefault();
 
     //Check if the inputs are filled
-    if (!name || !email || !password) {
+    if (!email || !password) {
       setData({
         ...data,
         error: <Alert severity="error">All fields are required!</Alert>,
       });
     }
 
-    // Register a new user
+    // LogIn with existing user
     try {
-      const result = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
+      const result = await signInWithEmailAndPassword(auth, email, password);
 
-      //Add the registerd user to Database
-      await setDoc(doc(db, "users", result.user.uid), {
-        uid: result.user.uid,
-        name,
-        email,
-        createdAt: Timestamp.fromDate(new Date()),
+      //Pick the user from Database
+      await updateDoc(doc(db, "users", result.user.uid), {
         isOnline: true,
       });
       setData({
-        name: "",
         email: "",
         password: "",
         error: null,
         loading: false,
       });
 
-      //Redirect to homepage when the register button clicked
+      //Redirect to homepage when the login button clicked
       navigate("/");
-    } catch (error) {}
+    } catch (error) {
+      setData({
+        ...data,
+        error: (
+          <Alert severity="error">Make sure your email & password match</Alert>
+        ),
+        loading: false,
+      });
+    }
   };
   return (
     <section>
-      <h3>Create an account</h3>
+      <h3>Log into your account</h3>
       <form className="form" onSubmit={submitHandler}>
         <div className="input__container">
-          <Input
-            type="text"
-            name="name"
-            value={name}
-            onChange={changeHandler}
-            placeholder="Name"
-          />
           <Input
             type="email"
             name="email"
@@ -90,13 +81,13 @@ function Register() {
             name="password"
             value={password}
             onChange={changeHandler}
-            placeholder="Password (Minimum 6 characters)"
+            placeholder="Password"
           />
           {/* Display the error */}
           {error ? <p>{error}</p> : null}
           <div>
             <Button type="submit" disabled={loading}>
-              {loading ? "Creating" : "Register"}
+              {loading ? "Logging in..." : "Login"}
             </Button>
           </div>
         </div>
@@ -105,4 +96,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default Login;
