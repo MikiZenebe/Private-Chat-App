@@ -1,0 +1,50 @@
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    padding: 0px 20px;
+    background-image: linear-gradient(to right, #ece9e6, #ffffff);
+    border-bottom: black;
+
+    a{
+        color: black;
+        text-decoration: none;
+        margin-right: 0px;
+    }
+    
+    div{
+        a{
+            margin-right: 20px;
+           
+            margin: 5px;
+            padding: 15px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: black;            
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+
+            &:hover {
+                background-image: linear-gradient(to right, #FF512F 0%, #F09819  51%, #FF512F  100%);
+                background-position: right center; /* change the direction of the change here */
+                color: #fff;
+                text-decoration: none;
+              }
+           
+        }
+
+       
+                     
+         
+           
+          
+
+          
+         
+        
+    }
+    
+}

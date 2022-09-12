@@ -1,0 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --color-1: black;
+    --color-2: white;
+    --color-3: #0084ff;
+    --color-5: #eb4034;
+    --color-6: #333;
+}
