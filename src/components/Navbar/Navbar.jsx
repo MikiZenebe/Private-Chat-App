@@ -31,7 +31,9 @@ function Navbar() {
         {user ? (
           <>
             <Link to="/profile">Profile</Link>
-            <Button onClick={SignOutHandler}>Logout</Button>
+            <Button className="btn" onClick={SignOutHandler}>
+              Logout
+            </Button>
           </>
         ) : (
           <>
