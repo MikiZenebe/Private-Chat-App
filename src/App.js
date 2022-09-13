@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 import "./App.css";
 
@@ -13,14 +13,14 @@ import PrivateRoute from "./components/PrivateRoute";
 function App() {
   return (
     <AuthProvider>
-      <Router>
-        <Navbar />
-        <Switch>
-          <Route exact path="/register" element={<Register />} />
-          <Route exact path="/login" element={<Login />} />
-          <PrivateRoute exact path="/" element={<Home />} />
-        </Switch>
-      </Router>
+      <Navbar />
+      <Routes>
+        <Route exact path="/register" element={<Register />} />
+        <Route exact path="/login" element={<Login />} />
+        <Route element={<PrivateRoute />}>
+          <Route element={<Home />} path="/" exact />
+        </Route>
+      </Routes>
     </AuthProvider>
   );
 }
