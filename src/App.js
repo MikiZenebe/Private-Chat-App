@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import "./App.css";
 
@@ -15,11 +15,11 @@ function App() {
     <AuthProvider>
       <Router>
         <Navbar />
-        <Routes>
+        <Switch>
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/login" element={<Login />} />
           <PrivateRoute exact path="/" element={<Home />} />
-        </Routes>
+        </Switch>
       </Router>
     </AuthProvider>
   );
