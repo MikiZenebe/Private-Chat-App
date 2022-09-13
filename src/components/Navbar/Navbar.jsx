@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 
 import { Button } from "@mui/material";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth, db } from "../../firebase";
 import { signOut } from "firebase/auth";
 import { updateDoc, doc } from "firebase/firestore";
@@ -12,6 +12,7 @@ import { AuthContext } from "../../context/auth";
 import "./Navbar.scss";
 
 function Navbar() {
+  const navigate = useNavigate();
   const { user } = useContext(AuthContext);
 
   //Logout the user when logout button clicked
@@ -20,11 +21,13 @@ function Navbar() {
       isOnline: false,
     });
     await signOut(auth);
+
+    navigate("/login");
   };
   return (
     <nav>
       <h3>
-        <Link to="/">Mik Chat</Link>
+        <Link to="/">Mikngeer</Link>
       </h3>
 
       <div>

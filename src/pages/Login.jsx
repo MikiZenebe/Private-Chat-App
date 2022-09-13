@@ -65,34 +65,36 @@ function Login() {
     }
   };
   return (
-    <section>
-      <h3>Log into your account</h3>
-      <form className="form" onSubmit={submitHandler}>
-        <div className="input__container">
-          <Input
-            type="email"
-            name="email"
-            value={email}
-            onChange={changeHandler}
-            placeholder="Email"
-          />{" "}
-          <Input
-            type="password"
-            name="password"
-            value={password}
-            onChange={changeHandler}
-            placeholder="Password"
-          />
-          {/* Display the error */}
-          {error ? <p>{error}</p> : null}
-          <div>
-            <Button type="submit" disabled={loading}>
-              {loading ? "Logging in..." : "Login"}
-            </Button>
+    <div>
+      <section>
+        <h3>Log into your account</h3>
+        <form className="form" onSubmit={submitHandler}>
+          <div className="input__container">
+            <Input
+              type="email"
+              name="email"
+              value={email}
+              onChange={changeHandler}
+              placeholder="Email"
+            />{" "}
+            <Input
+              type="password"
+              name="password"
+              value={password}
+              onChange={changeHandler}
+              placeholder="Password"
+            />
+            {/* Display the error */}
+            {error ? <p>{error}</p> : null}
+            <div>
+              <Button type="submit" disabled={loading}>
+                {loading ? "Logging in..." : "Login"}
+              </Button>
+            </div>
           </div>
-        </div>
-      </form>
-    </section>
+        </form>
+      </section>
+    </div>
   );
 }
 

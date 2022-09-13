@@ -68,6 +68,7 @@ function Register() {
   };
   return (
     <section>
+      <h2>Welcome to Mikngger </h2>
       <h3>Create an account</h3>
       <form className="form" onSubmit={submitHandler}>
         <div className="input__container">
