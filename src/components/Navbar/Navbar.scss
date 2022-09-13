@@ -5,7 +5,7 @@ nav{
     height: 70px;
     padding: 0px 20px;
     background: white;
-    border-bottom: black;
+    border-bottom: #000000;
     box-shadow: rgba(0, 0, 0, 0.45) 0px 1px 20px -20px;
 
     a{
@@ -35,6 +35,14 @@ nav{
                 text-decoration: none;
                 text-transform: uppercase;
               }
+
+              Button{
+                background-image: linear-gradient(to right, #FF512F 0%, #F09819  51%, #FF512F  100%);
+                background-position: right center; /* change the direction of the change here */
+                color: #fff;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
            
         }
 
