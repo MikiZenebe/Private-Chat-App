@@ -83,6 +83,7 @@ function Login() {
               value={password}
               onChange={changeHandler}
               placeholder="Password"
+              autoComplete="current-password"
             />
             {/* Display the error */}
             {error ? <p>{error}</p> : null}
