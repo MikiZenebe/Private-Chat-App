@@ -17,6 +17,7 @@ function Profile() {
   //Create image data state
   const [img, setImg] = useState("");
   const [user, setUser] = useState();
+
   const navigate = useNavigate("");
   //Create the ref for the image
   useEffect(() => {
@@ -39,13 +40,14 @@ function Profile() {
           }
           const snap = await uploadBytes(imgRef, img);
           const url = await getDownloadURL(ref(storage, snap.ref.fullPath));
+
           //Update or add the avatar to the doc
           await updateDoc(doc(db, "users", auth.currentUser.uid), {
             avatar: url,
             avatarPath: snap.ref.fullPath,
           });
           console.log(url);
-          setImg("");
+          setImg();
         } catch (error) {
           console.log(error.message);
         }
@@ -54,13 +56,14 @@ function Profile() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [img]);
+
   //Delete the profile image with delete icon
   const deleteImage = async () => {
     try {
       const confirm = window.confirm("Delete the Profile Picture?");
       if (confirm) {
         await deleteObject(ref(storage, user.avatarPath));
-        await updateDoc(doc(db, "avatar", auth.currentUser.uid), {
+        await updateDoc(doc(db, "users", auth.currentUser.uid), {
           avatar: "",
           avatarPath: "",
         });
