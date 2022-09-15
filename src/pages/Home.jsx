@@ -6,6 +6,7 @@ import "./Home.scss";
 
 function Home() {
   const [users, setUsers] = useState([]);
+  const [chat, setChat] = useState("");
 
   useEffect(() => {
     const userRef = collection(db, "users");
@@ -25,7 +26,7 @@ function Home() {
   }, []);
 
   const selectUser = (user) => {
-    console.log(user);
+    setChat(user);
   };
 
   return (
@@ -34,6 +35,16 @@ function Home() {
         {users.map((user) => (
           <User key={user.uid} user={user} selectUser={selectUser} />
         ))}
+      </div>
+
+      <div className="messages-container">
+        {chat ? (
+          <div className="messages-user">
+            <h3>{chat.name}</h3>
+          </div>
+        ) : (
+          <h3 className="no-chat">Select a user to chat</h3>
+        )}
       </div>
     </div>
   );

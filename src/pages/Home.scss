@@ -12,7 +12,30 @@
         overflow-y: auto;
         background: white;
     }
+
+
+    .messages-container{
+        position: relative;
+        width: 100%;
+    
+        .messages-user{
+
+            margin-top: 1px;
+            padding: 10px;
+            text-align: center;
+            border-bottom: 2px solid #f0961946;
+            background: white;
+        }
+
+        .no-chat{
+            font-size: 20px;
+            color: #F09819;
+            text-align: center;
+        }
+    }
+   
 }
+
 
 
 .user-wrapper{
@@ -68,3 +91,4 @@
         background: red;
     }
 }
+
