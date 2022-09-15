@@ -88,7 +88,7 @@ function Login() {
             {/* Display the error */}
             {error ? <p>{error}</p> : null}
             <div>
-              <Button type="submit" disabled={loading}>
+              <Button type="submit">
                 {loading ? "Logging in..." : "Login"}
               </Button>
             </div>

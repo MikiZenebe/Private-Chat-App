@@ -96,9 +96,7 @@ function Register() {
           {/* Display the error */}
           {error ? <p>{error}</p> : null}
           <div>
-            <Button type="submit" disabled={loading}>
-              {loading ? "Creating" : "Register"}
-            </Button>
+            <Button type="submit">{loading ? "Creating" : "Register"}</Button>
           </div>
         </div>
       </form>

@@ -10,7 +10,7 @@ import {
   deleteObject,
 } from "firebase/storage";
 import { getDoc, doc, updateDoc } from "firebase/firestore";
-import Miki from "../assets/miki.jpg";
+import Default from "../assets/default.png";
 import { useNavigate } from "react-router-dom";
 
 function Profile() {
@@ -76,7 +76,7 @@ function Profile() {
   return user ? (
     <div className="profile-container">
       <div className="img-container">
-        <img src={user.avatar || Miki} alt="" />
+        <img src={user.avatar || Default} alt="" />
         <div className="overlay">
           <div>
             <label htmlFor="photo">
