@@ -5,12 +5,15 @@
     overflow: hidden;
     height: calc(100vh - 70px);
     width: 100vw;
+    background-image: url('../assets/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 
     .users-container {
         margin-top: 1px;
-        border-right: 2px solid #f0961946;
+        // border-right: 2px solid #f0961946;
         overflow-y: auto;
-        background: white;
+        background-image: linear-gradient(to bottom, #f096193b 0%, #ff522f42 51%)
     }
 
 
@@ -19,12 +22,13 @@
         width: 100%;
 
         .messages-user {
-
+            color: black;
             margin-top: 1px;
             padding: 10px;
             text-align: center;
-            border-bottom: 2px solid #f0961946;
-            background: white;
+            // border-bottom: 2px solid #f0961946;
+             background-image: linear-gradient(to right, #fdf1e08c 0%, #ffe3b856  51%);
+
         }
 
         .no-chat {
@@ -44,9 +48,10 @@
     cursor: pointer;
 
     &:hover {
-        background-image: linear-gradient(to right, #ff522f9a 0%, #f0961971 51%);
+        background-image: linear-gradient(to right, #ff522f50 0%, #f0961950 51%);
         transition: all 0.3s ease-in-out;
         color: white;
+        box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, #0000004d 0px 30px 60px -30px;
     }
 
 
@@ -121,7 +126,7 @@
     height: calc(100vh - 200px);
     overflow-y: auto;
     border-bottom: 1px solid #F09819;
-    background-image: url(../assets/bg.jpg);
+
 }
 
 .message-wrapper {
@@ -140,7 +145,7 @@
         text-align: left;
         border-radius: 5px;
 
-       
+
     }
 
     small {
@@ -150,12 +155,12 @@
     }
 
     .me {
-        background: #1e0524;
-        color: white;
+        background: #f0961950;
+        color: black;
     }
 
-    .friend{
-        background: white;
+    .friend {
+        background: #6e6e6e18;
         color: black;
     }
 
