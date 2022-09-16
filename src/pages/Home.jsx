@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { db, auth } from "../firebase";
+import { db, auth, storage } from "../firebase";
 import {
   collection,
   query,
@@ -7,15 +7,20 @@ import {
   onSnapshot,
   addDoc,
   Timestamp,
+  orderBy,
 } from "firebase/firestore";
+import { ref, getDownloadURL, uploadBytes } from "firebase/storage";
 import User from "../components/User";
 import "./Home.scss";
 import MessageForm from "../components/MessageForm";
+import Message from "../components/Message";
 
 function Home() {
   const [users, setUsers] = useState([]);
   const [chat, setChat] = useState("");
   const [text, setText] = useState("");
+  const [img, setImg] = useState("");
+  const [msgs, setMsgs] = useState("");
 
   const user1 = auth.currentUser.uid;
 
@@ -38,7 +43,22 @@ function Home() {
 
   const selectUser = (user) => {
     setChat(user);
+
+    const user2 = user.uid;
+    const id = user1 > user2 ? `${user1 + user2}` : `${user2 + user1}`;
+
+    const msgsRef = collection(db, "messages", id, "chat");
+    const q = query(msgsRef, orderBy("createdAt", "asc"));
+
+    onSnapshot(q, (querySnapshot) => {
+      let msgs = [];
+      querySnapshot.forEach((doc) => {
+        msgs.push(doc.data());
+      });
+      setMsgs(msgs);
+    });
   };
+  console.log(msgs);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -47,11 +67,23 @@ function Home() {
 
     const id = user1 > user2 ? `${user1 + user2}` : `${user2 + user1}`;
 
+    let url;
+    if (img) {
+      const imgRef = ref(
+        storage,
+        `images/${new Date().getTime()} - ${img.name}`
+      );
+      const snap = await uploadBytes(imgRef, img);
+      const dlUrl = await getDownloadURL(ref(storage, snap.ref.fullPath));
+      url = dlUrl;
+    }
+
     await addDoc(collection(db, "messages", id, "chat"), {
       text,
       from: user1,
       to: user2,
       createdAt: Timestamp.fromDate(new Date()),
+      media: url || "",
     });
     setText("");
   };
@@ -70,10 +102,20 @@ function Home() {
             <div className="messages-user">
               <h3>{chat.name}</h3>
             </div>
+
+            <div className="messages">
+              {msgs.length
+                ? msgs.map((msg, i) => (
+                    <Message key={i} msg={msg} user1={user1} />
+                  ))
+                : null}
+            </div>
+
             <MessageForm
               submitHandler={submitHandler}
               text={text}
               setText={setText}
+              setImg={setImg}
             />
           </>
         ) : (

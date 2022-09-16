@@ -1,4 +1,4 @@
-.home-container{
+.home-container {
     position: relative;
     display: grid;
     grid-template-columns: 1fr 3fr;
@@ -6,7 +6,7 @@
     height: calc(100vh - 70px);
     width: 100vw;
 
-    .users-container{
+    .users-container {
         margin-top: 1px;
         border-right: 2px solid #f0961946;
         overflow-y: auto;
@@ -14,11 +14,11 @@
     }
 
 
-    .messages-container{
+    .messages-container {
         position: relative;
         width: 100%;
-    
-        .messages-user{
+
+        .messages-user {
 
             margin-top: 1px;
             padding: 10px;
@@ -27,44 +27,44 @@
             background: white;
         }
 
-        .no-chat{
+        .no-chat {
             font-size: 20px;
             color: #F09819;
             text-align: center;
         }
     }
-   
+
 }
 
 
 
-.user-wrapper{
+.user-wrapper {
     margin-bottom: 10px;
     padding: 10px;
     cursor: pointer;
 
-    &:hover{
-        background-image: linear-gradient(to right, #ff522f9a 0%, #f0961971  51%);
+    &:hover {
+        background-image: linear-gradient(to right, #ff522f9a 0%, #f0961971 51%);
         transition: all 0.3s ease-in-out;
         color: white;
     }
-    
 
-    .user-info{
-        
+
+    .user-info {
+
         display: flex;
         justify-content: space-between;
         align-items: center;
 
-        .user-detail{
+        .user-detail {
             display: flex;
             align-items: center;
 
-            h4{
+            h4 {
                 margin-left: 10px;
             }
 
-            .avatar{
+            .avatar {
                 width: 50px;
                 height: 50px;
                 border-radius: 50%;
@@ -72,27 +72,29 @@
             }
         }
 
-        
-        
+
+
     }
 
-    .user-status{
+    .user-status {
         width: 10px;
         height: 10px;
         border-radius: 50%;
 
-       
-       
+
+
     }
-    .online{
+
+    .online {
         background: #83ff83;
     }
-    .offline{
+
+    .offline {
         background: red;
     }
 }
 
-.message-form{
+.message-form {
     position: absolute;
     bottom: 0;
     left: 20%;
@@ -101,7 +103,7 @@
     display: flex;
     align-items: center;
 
-    input{
+    input {
         width: 40vw;
         margin: 0px 10px 10px;
         padding: 10px;
@@ -110,7 +112,55 @@
         border: none;
     }
 
-    .btn{
+    .btn {
         margin-top: -10px;
     }
+}
+
+.messages {
+    height: calc(100vh - 200px);
+    overflow-y: auto;
+    border-bottom: 1px solid #F09819;
+    background-image: url(../assets/bg.jpg);
+}
+
+.message-wrapper {
+    margin-top: 5px;
+    padding: 0px 5px;
+
+    img {
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    p {
+        padding: 10px;
+        display: inline-block;
+        max-width: 50%;
+        text-align: left;
+        border-radius: 5px;
+
+       
+    }
+
+    small {
+        display: inline-block;
+        margin-top: 15px;
+        opacity: 0.8;
+    }
+
+    .me {
+        background: #1e0524;
+        color: white;
+    }
+
+    .friend{
+        background: white;
+        color: black;
+    }
+
+}
+
+.message-wrapper.own {
+    text-align: right;
 }

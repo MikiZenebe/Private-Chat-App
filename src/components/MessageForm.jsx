@@ -4,13 +4,14 @@ import { IoMdSend } from "react-icons/io";
 import { Button } from "@mui/material";
 import "../pages/Home.scss";
 
-function MessageForm({ submitHandler, text, setText }) {
+function MessageForm({ submitHandler, text, setText, setImg }) {
   return (
     <form className="message-form" onSubmit={submitHandler}>
       <label htmlFor="img">
         <GrAttachment cursor="pointer" fill="#F09819" />
       </label>
       <input
+        onChange={(e) => setImg(e.target.files[0])}
         type="file"
         accept="image/*"
         id="img"
