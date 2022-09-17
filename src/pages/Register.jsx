@@ -6,6 +6,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../firebase";
 import { setDoc, doc, Timestamp } from "firebase/firestore";
 
+import Credit from "../Credit";
 import "./Register.scss";
 
 function Register() {
@@ -67,40 +68,45 @@ function Register() {
     } catch (error) {}
   };
   return (
-    <section>
-      <h2>Welcome to Mikngger </h2>
-      <h3>Create an account</h3>
-      <form className="form" onSubmit={submitHandler}>
-        <div className="input__container">
-          <Input
-            type="text"
-            name="name"
-            value={name}
-            onChange={changeHandler}
-            placeholder="Name"
-          />
-          <Input
-            type="email"
-            name="email"
-            value={email}
-            onChange={changeHandler}
-            placeholder="Email"
-          />{" "}
-          <Input
-            type="password"
-            name="password"
-            value={password}
-            onChange={changeHandler}
-            placeholder="Password (Minimum 6 characters)"
-          />
-          {/* Display the error */}
-          {error ? <p>{error}</p> : null}
-          <div>
-            <Button type="submit">{loading ? "Creating" : "Register"}</Button>
+    <>
+      <section>
+        <h2>Welcome to Mikngger </h2>
+        <h3>Create an account</h3>
+        <form className="form" onSubmit={submitHandler}>
+          <div className="input__container">
+            <Input
+              type="text"
+              name="name"
+              value={name}
+              onChange={changeHandler}
+              placeholder="Name"
+            />
+            <Input
+              type="email"
+              name="email"
+              value={email}
+              onChange={changeHandler}
+              placeholder="Email"
+            />{" "}
+            <Input
+              type="password"
+              name="password"
+              value={password}
+              onChange={changeHandler}
+              placeholder="Password (Minimum 6 characters)"
+            />
+            {/* Display the error */}
+            {error ? <p>{error}</p> : null}
+            <div>
+              <Button type="submit">{loading ? "Creating" : "Register"}</Button>
+            </div>
           </div>
-        </div>
-      </form>
-    </section>
+        </form>
+      </section>
+      <div style={{ textAlign: "center" }}>
+        <Credit />
+      </div>
+    </>
   );
 }
 

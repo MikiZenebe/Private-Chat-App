@@ -5,7 +5,7 @@ import { Input, Button, Alert } from "@mui/material";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../firebase";
 import { updateDoc, doc } from "firebase/firestore";
-
+import Credit from "../Credit";
 import "./Register.scss";
 
 function Login() {
@@ -95,6 +95,9 @@ function Login() {
           </div>
         </form>
       </section>
+      <div style={{ textAlign: "center" }}>
+        <Credit />
+      </div>
     </div>
   );
 }
