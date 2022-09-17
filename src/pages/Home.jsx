@@ -8,12 +8,17 @@ import {
   addDoc,
   Timestamp,
   orderBy,
+  setDoc,
+  doc,
+  getDoc,
+  updateDoc,
 } from "firebase/firestore";
 import { ref, getDownloadURL, uploadBytes } from "firebase/storage";
 import User from "../components/User";
 import "./Home.scss";
 import MessageForm from "../components/MessageForm";
 import Message from "../components/Message";
+import { async } from "@firebase/util";
 
 function Home() {
   const [users, setUsers] = useState([]);
@@ -41,7 +46,7 @@ function Home() {
     return () => unsub();
   }, [user1]);
 
-  const selectUser = (user) => {
+  const selectUser = async (user) => {
     setChat(user);
 
     const user2 = user.uid;
@@ -57,6 +62,12 @@ function Home() {
       });
       setMsgs(msgs);
     });
+
+    //Get last msg b/n logged user and selected user
+    const docSnap = await getDoc(doc(db, "lastMsg", id));
+    if (docSnap.data() && docSnap.data().from !== user1) {
+      await updateDoc(doc(db, "lastMsg", id), { unread: false });
+    }
   };
   console.log(msgs);
 
@@ -85,6 +96,16 @@ function Home() {
       createdAt: Timestamp.fromDate(new Date()),
       media: url || "",
     });
+
+    await setDoc(doc(db, "lastMsg", id), {
+      text,
+      from: user1,
+      to: user2,
+      createdAt: Timestamp.fromDate(new Date()),
+      media: url || "",
+      unread: true,
+    });
+
     setText("");
   };
 
@@ -92,7 +113,13 @@ function Home() {
     <div className="home-container">
       <div className="users-container">
         {users.map((user) => (
-          <User key={user.uid} user={user} selectUser={selectUser} />
+          <User
+            key={user.uid}
+            user={user}
+            selectUser={selectUser}
+            user1={user1}
+            chat={chat}
+          />
         ))}
       </div>
 
